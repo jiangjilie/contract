@@ -1,0 +1,116 @@
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>档案管理系统</title>
+    <link href="dagl/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width">
+    <link href="dagl/Scripts/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/datatables/dataTables.bootstrap.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/ace/css/ace.min.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/dist/css/skins/_all-skins.min.css" rel="stylesheet">
+<link href="dagl/Scripts/Content/toastr/toastr.min.css" rel="stylesheet">
+<link href="dagl/Styles/main.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="~/Scripts/Content/html5shiv.min.js"></script>
+    <script src="~/Scripts/Content/respond.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="http://10.0.175.249dagl/Scripts/Content/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss"></head>
+<body>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form role="form" id="formAdd" data-parsley-validate="" class="form-horizontal" novalidate="">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-2"><label class="lable-title control-label">用户名</label></div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" required="" id="txtUserName" name="UserName" placeholder="用户名">
+                                    </div>
+                                    <div class="col-sm-2"><label class="lable-title control-label">姓名</label></div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="txtName" name="Name" placeholder="姓名">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-2"><label class="lable-title control-label">密码</label></div>
+                                    <div class="col-sm-3">
+                                        <input type="password" class="form-control" id="txtPassWord" placeholder="密码" required="">
+                                        <input type="hidden" id="txtPassWord1" name="PassWord">
+                                    </div>
+
+                                    <div class="col-sm-2"><label class="lable-title control-label">角色</label></div>
+                                    <div class="col-sm-3">
+                                        <select id="selRole" class="form-control select2" name="role" data-hide-disabled="true" data-live-search="true"><option value=""></option><option value="665074701BD548578635D0DCDD52DF52">分管所</option><option value="6FA0579CD3D14E3BA0C912069F69E597">管理员</option><option value="992B1DD3FA4146BF93ADAAAC6BB92C11">档案科查询岗</option></select>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div id="emerror">
+                                        <div class="col-sm-2"><label class="lable-title control-label">邮箱</label></div>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="txtEmail" data-parsley-type="email" name="Email" placeholder="邮箱" onchange="CkEmail()">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2"><label class="lable-title control-label">所属部门</label></div>
+                                    <div class="col-sm-3">
+                                        <select id="selDept" class="form-control select2" name="Dept" data-hide-disabled="true" data-live-search="true"><option value=""></option><option value="A9CCD2EDB10440F19216962F33FEA19E">档案科</option></select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div id="mberror">
+                                        <div class="col-sm-2"><label class="lable-title control-label">联系电话</label></div>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="txtMobile" name="Mobile" placeholder="联系电话" onchange="CkMobile()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <!-- /.box-body -->
+
+                        <div class="box-footer layer-footer">
+                            <button type="button" class="btn btn-default" onclick="Common.Cancel()">取消</button>
+                            <button type="button" class="btn btn-primary" onclick="Init.Save()">保存</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    <script src="dagl/Scripts/jquery-1.9.1.min.js"></script>
+<script src="dagl/Scripts/jquery-form.js"></script>
+<script src="dagl/Scripts/Content/bootstrap/js/bootstrap.min.js"></script>
+<script src="dagl/Scripts/Content/layer/layer.js"></script>
+<script src="dagl/Scripts/Content/es5-shim-master/es5-shim.min.js"></script>
+<script src="dagl/Scripts/Content/parsleyjs/parsley.min.js"></script>
+<script src="dagl/Scripts/Common.js"></script>
+<script src="dagl/Scripts/Content/toastr/toastr.min.js"></script>
+
+<script src="dagl/Scripts/sha1.js"></script>
+<script src="dagl/Scripts/User.js" type="text/javascript"> </script>
+
+
+</body></html>
